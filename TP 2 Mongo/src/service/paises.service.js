@@ -21,15 +21,6 @@ const getOne = async (id) => {
   }
 };
 
-/* const createIndex = async () => {
-  try {
-    await daoPais.createIndex({ codigoPais: 1 });
-    console.log("Índice 'codigoPais' creado correctamente");
-  } catch (error) {
-    console.error("Error al crear el índice:", error);
-  }
-}; */ // CREADA EN PAISES.DAO. REVISAR
-
 const populate = async () => {
   for (let codigo = 1; codigo <= 300; codigo++) {
     const url = `https://restcountries.com/v2/callingcode/${codigo}`;
@@ -117,7 +108,7 @@ const searchPaises = async (filters) => {
 // http://localhost:8080/paises/search?region=Americas
 // http://localhost:8080/paises/search?region=Americas&poblacion=>100000000
 // http://localhost:8080/paises/search?region=$ne:Africa
-// http://localhost:8080/paises/search?poblacion=>50000000&poblacion=<150000000 NO FUNCIONA
+// http://localhost:8080/paises/search?poblacion=>50000000&poblacion=<150000000
 
 const deletePaises = async (id) => {
   await daoPais.delete({ codigoPais: id });
